@@ -18,95 +18,85 @@ public class ImageProcessor
         Scanner input = new Scanner(System.in);
         clearScreen();
         displayWelcome();
-        String whatToDo = getInputName(input);
-        if(whatToDo.equals("1")) {
-            String fileName = getFileName(input);
-            Scanner imageScanner = null;
-            imageScanner = initInFile(fileName);
-            PrintWriter outpic =  openOutfile(fileName);
-            flattenRedFilter(imageScanner, outpic);
+        String finalAnswer = "y";
+        while (finalAnswer.equals("y")) {
+            displayOptions();
+            String whatToDo = getInputName(input);
+            if(whatToDo.equals("1")) {
+                String fileName = getFileName(input);
+                Scanner imageScanner = null;
+                imageScanner = initInFile(fileName);
+                PrintWriter outpic =  openOutfile(fileName);
+                flattenRedFilter(imageScanner, outpic);
+            }
+            else if(whatToDo.equals("2")) {
+                String fileName = getFileName(input);
+                Scanner imageScanner = null;
+                imageScanner = initInFile(fileName);
+                PrintWriter outpic =  openOutfile(fileName);
+                flattenGreenFilter(imageScanner, outpic);
+            }
+            else if(whatToDo.equals("3")) {
+                String fileName = getFileName(input);
+                Scanner imageScanner = null;
+                imageScanner = initInFile(fileName);
+                PrintWriter outpic =  openOutfile(fileName);
+                flattenBlueFilter(imageScanner, outpic);
+            }
+            else if(whatToDo.equals("4")) {
+                String fileName = getFileName(input);
+                Scanner imageScanner = null;
+                imageScanner = initInFile(fileName);
+                PrintWriter outpic = openOutfile(fileName);
+                negateRedFilter(imageScanner, outpic);
+            }
+            else if(whatToDo.equals("5")) {
+                String fileName = getFileName(input);
+                Scanner imageScanner = null;
+                imageScanner = initInFile(fileName);
+                PrintWriter outpic = openOutfile(fileName);
+                negateGreenFilter(imageScanner, outpic);
+            }
+            else if(whatToDo.equals("6")) {
+                String fileName = getFileName(input);
+                Scanner imageScanner = null;
+                imageScanner = initInFile(fileName);
+                PrintWriter outpic = openOutfile(fileName);
+                negateBlueFilter(imageScanner, outpic);
+            }
+            else if(whatToDo.equals("7")) {
+                String fileName = getFileName(input);
+                Scanner imageScanner = null;
+                imageScanner = initInFile(fileName);
+                PrintWriter outpic = openOutfile(fileName);
+                invert(imageScanner, outpic);
+            }
+            else if(whatToDo.equals("8")) {
+                String fileName = getFileName(input);
+                Scanner imageScanner = null;
+                imageScanner = initInFile(fileName);
+                PrintWriter outpic = openOutfile(fileName);
+                grayScaleFilter(imageScanner, outpic);
+            }
+            else if(whatToDo.equals("9")) {
+                String fileName = getFileName(input);
+                Scanner imageScanner = null;
+                imageScanner = initInFile(fileName);
+                PrintWriter outpic = openOutfile(fileName);
+                flipHorTransform(imageScanner, outpic);
+            }
+            else if(whatToDo.equals("10")) {
+                String fileName = getFileName(input);
+                Scanner imageScanner = null;
+                imageScanner = initInFile(fileName);
+                PrintWriter outpic = openOutfile(fileName);
+                collage(imageScanner, outpic);
+            }
+            System.out.println(" ");
+            System.out.println("Do you want to re-run (y/n)? ");
+            finalAnswer = input.nextLine();
         }
-        else if(whatToDo.equals("2")) {
-            String fileName = getFileName(input);
-            Scanner imageScanner = null;
-            imageScanner = initInFile(fileName);
-            PrintWriter outpic =  openOutfile(fileName);
-            flattenGreenFilter(imageScanner, outpic);
-        }
-        else if(whatToDo.equals("3")) {
-            String fileName = getFileName(input);
-            Scanner imageScanner = null;
-            imageScanner = initInFile(fileName);
-            PrintWriter outpic =  openOutfile(fileName);
-            flattenBlueFilter(imageScanner, outpic);
-        }
-        else if(whatToDo.equals("4")) {
-            String fileName = getFileName(input);
-            Scanner imageScanner = null;
-            imageScanner = initInFile(fileName);
-            PrintWriter outpic = openOutfile(fileName);
-            negateRedFilter(imageScanner, outpic);
-        }
-        else if(whatToDo.equals("5")) {
-            String fileName = getFileName(input);
-            Scanner imageScanner = null;
-            imageScanner = initInFile(fileName);
-            PrintWriter outpic = openOutfile(fileName);
-            negateGreenFilter(imageScanner, outpic);
-        }
-        else if(whatToDo.equals("6")) {
-            String fileName = getFileName(input);
-            Scanner imageScanner = null;
-            imageScanner = initInFile(fileName);
-            PrintWriter outpic = openOutfile(fileName);
-            negateBlueFilter(imageScanner, outpic);
-        }
-        else if(whatToDo.equals("7")) {
-            String fileName = getFileName(input);
-            Scanner imageScanner = null;
-            imageScanner = initInFile(fileName);
-            PrintWriter outpic = openOutfile(fileName);
-            invert(imageScanner, outpic);
-        }
-        else if(whatToDo.equals("8")) {
-            String fileName = getFileName(input);
-            Scanner imageScanner = null;
-            imageScanner = initInFile(fileName);
-            PrintWriter outpic = openOutfile(fileName);
-            grayScaleFilter(imageScanner, outpic);
-        }
-        else if(whatToDo.equals("9")) {
-            String fileName = getFileName(input);
-            Scanner imageScanner = null;
-            imageScanner = initInFile(fileName);
-            PrintWriter outpic = openOutfile(fileName);
-            int num = 1;
-            motionBlurFilter(imageScanner, outpic, num);
-        }
-        else if(whatToDo.equals("10")) {
-            String fileName = getFileName(input);
-            Scanner imageScanner = null;
-            imageScanner = initInFile(fileName);
-            PrintWriter outpic = openOutfile(fileName);
-            flipHorTransform(imageScanner, outpic);
-        }
-        else if(whatToDo.equals("11")) {
-            String fileName = getFileName(input);
-            Scanner imageScanner = null;
-            imageScanner = initInFile(fileName);
-            PrintWriter outpic = openOutfile(fileName);
-            embossFilter(imageScanner, outpic);
-        }
-        else if(whatToDo.equals("12")) {
-            String fileName = getFileName(input);
-            Scanner imageScanner = null;
-            imageScanner = initInFile(fileName);
-            PrintWriter outpic = openOutfile(fileName);
-            collage(imageScanner, outpic);
-        }
-
         displayFarewell();
-
     }
 
     public void clearScreen() {
@@ -137,7 +127,10 @@ public class ImageProcessor
         System.out.println(" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
         System.out.println("");
         System.out.println("/ What do you want to do: /");
-        System.out.println("");
+    }
+    
+    public void displayOptions() {
+        System.out.println(" ");
         System.out.println("/ 1. Flatten Red /");
         System.out.println("/ 2. Flatten Green /");
         System.out.println("/ 3. Flatten Blue /");
@@ -146,18 +139,18 @@ public class ImageProcessor
         System.out.println("/ 6. Negate Blue /");
         System.out.println("/ 7. Invert /");
         System.out.println("/ 8. Grey Scale /");
-        System.out.println("/ 9. Motion Blur /");
-        System.out.println("/ 10. Flip Horizontally /");
-        System.out.println("/ 11. Emboss /");
-        System.out.println("/ 12. Collage /");
+        System.out.println("/ 9. Flip Horizontally /");
+        System.out.println("/ 10. Collage /");
     }
 
     public String getFileName(Scanner input) {
+        System.out.println(" ");
         System.out.println("/ Give me your file name: /");
         return input.nextLine();
     }
 
     public String getInputName(Scanner input) {
+        System.out.println(" ");
         System.out.println("/ Give me your choice: /");
         return input.nextLine();
     }
@@ -259,7 +252,6 @@ public class ImageProcessor
             }
             outpic.println();
         }
-
         outpic.flush();
     }
 
@@ -305,7 +297,6 @@ public class ImageProcessor
             }
             outpic.println();
         }
-
         outpic.flush();
     }
 
@@ -328,7 +319,6 @@ public class ImageProcessor
             }
             outpic.println();
         }
-
         outpic.flush();
     }
 
@@ -351,7 +341,6 @@ public class ImageProcessor
             }
             outpic.println();
         }
-
         outpic.flush();
     }
 
@@ -378,55 +367,6 @@ public class ImageProcessor
             }
             outpic.println();
         }
-
-        outpic.flush();
-    }
-
-    public void motionBlurFilter (Scanner fileScanner, PrintWriter outpic, int num) throws java.io.IOException {
-        String p3Part = fileScanner.nextLine();
-        int cols = fileScanner.nextInt();
-        int rows = fileScanner.nextInt();
-        int maxVal = fileScanner.nextInt();
-
-        outpic.println(p3Part);
-        outpic.println(cols + " " + rows);
-        outpic.println(maxVal);
-        // thats the header
-        for(int a = 0; a < rows; a++) {
-            for(int b = 0; b < cols; b++) {
-                int avgRed, avgGreen, avgBlue;
-                avgRed = avgGreen = avgBlue = 0;
-                int tmp = num;
-                int red = fileScanner.nextInt();
-                int green = fileScanner.nextInt();
-                int blue = fileScanner.nextInt();
-
-                if (b + num > cols) {
-                    tmp = num -(b + num - cols);
-
-                }
-                for (int k = 0; k <= tmp - 1; k++) {
-                    avgRed += red + k;
-                    avgGreen += green + k;
-                    avgBlue += blue + k;
-
-                }
-                if (tmp != 0) {
-                    red = avgRed/tmp;
-                    green = avgGreen/tmp;
-                    blue = avgBlue/tmp;
-
-                }
-                else {
-                    red = avgRed;
-                    green = avgGreen;
-                    blue = avgBlue;
-
-                } 
-                outpic.print(red + " " + green + " " + blue + " ");
-            }
-            outpic.println();
-        }
         outpic.flush();
     }
 
@@ -450,56 +390,6 @@ public class ImageProcessor
                 pixelRow = row + pixelRow;
             }
             outpic.println(pixelRow);
-        }
-        outpic.flush();
-    }
-
-    public void embossFilter (Scanner fileScanner, PrintWriter outpic) throws java.io.IOException {
-        String p3Part = fileScanner.nextLine();
-        int cols = fileScanner.nextInt();
-        int rows = fileScanner.nextInt();
-        int maxVal = fileScanner.nextInt();
-
-        outpic.println(p3Part);
-        outpic.println(cols + " " + rows);
-        outpic.println(maxVal);
-        // thats the header
-        for (int a = rows - 1; a >= 0; a--) {
-            for (int b = cols - 1; b >= 0; b--) {
-                int red = fileScanner.nextInt();
-                int green = fileScanner.nextInt();
-                int blue = fileScanner.nextInt();
-                if (b == 0 || a == 0) {
-                    red = maxVal / 2 + 1;
-                    green = maxVal/ 2 + 1;
-                    blue = maxVal/ 2 + 1;
-                }
-                else {
-                    int redDiff = (red - red - 1);
-                    int greenDiff = (green - green - 1);
-                    int blueDiff = (blue - blue - 1);
-                    int maxDiff = redDiff;
-                    if (Math.abs(greenDiff) > Math.abs(maxDiff)) {
-                        maxDiff = greenDiff;
-                    }
-                    if (Math.abs(blueDiff) > Math.abs(maxDiff)) {
-                        maxDiff = blueDiff;
-                    }
-                    int v = 128 + maxDiff;
-                    if (v < 0) {
-                        v = 0;
-                    }
-                    else if (v > maxVal) {
-                        v = maxVal;
-                    }
-                    red = v;
-                    green = v;
-                    blue = v;
-
-                }
-                outpic.print(red + " " + green + " " + blue + " ");
-            }
-            outpic.println();
         }
         outpic.flush();
     }
@@ -536,7 +426,7 @@ public class ImageProcessor
     }
 
     public void displayFarewell() {
-        System.out.println("\n");
+        System.out.println(" ");
         System.out.println("/ / / / / / / / / / / / / / / / / / / / /");
         System.out.println("/  Thanks for choosing Impractical PPM. /");
         System.out.println("/ / / / / / / / / / / / / / / / / / / / /");
